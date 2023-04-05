@@ -1,1 +1,4 @@
-Here, i am going to build Rock Paper Scissors Game by using HTML, CSS & JS.
+                                             ** Rock Paper Scissors Game **
+
+
+This is Rock Paper Scissors Game. Which i build for practice purpose when i was going to revision batch at masai school. This game by using HTML, CSS & JS.
