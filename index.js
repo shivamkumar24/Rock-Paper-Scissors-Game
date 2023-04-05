@@ -11,13 +11,13 @@ const rock = document.getElementById("rock");
 const paper = document.getElementById("paper");
 const scissors = document.getElementById("scissors");
 
-function getComputerChoice() {
+const getComputerChoice = () => {
   const choice = ["rock", "paper", "scissors"];
   const randomNumber = Math.floor(Math.random() * 3);
   return choice[randomNumber];
-}
+};
 
-function game(userChoice) {
+const game = (userChoice) => {
   const computerChoice = getComputerChoice();
   switch (userChoice + computerChoice) {
     case "rockscissors":
@@ -28,7 +28,7 @@ function game(userChoice) {
     case "rockpaper":
     case "paperscissors":
     case "scissorsrock":
-      lose(userChoice, computerChoice);
+      lost(userChoice, computerChoice);
       break;
     case "rockrock":
     case "paperpaper":
@@ -38,24 +38,24 @@ function game(userChoice) {
     default:
       break;
   }
-}
+};
 
-function convertLetter(letter) {
+const convertLetter = (letter) => {
   if (letter === "rock") return "Rock";
   if (letter === "paper") return "Paper";
   return "Scissors";
-}
+};
 
-function win(userChoice, computerChoice) {
+const win = (userChoice, computerChoice) => {
   userScore++;
   userSpanScore.innerHTML = userScore;
   computerSpanScore.innerHTML = computerScore;
   result.innerHTML = `${convertLetter(userChoice)}(user) beats ${convertLetter(
     computerChoice
   )}(computer). You win .....!!`;
-}
+};
 
-function lose(userChoice, computerChoice) {
+const lost = (userChoice, computerChoice) => {
   computerScore++;
   userSpanScore.innerHTML = userScore;
   computerSpanScore.innerHTML = computerScore;
@@ -64,17 +64,17 @@ function lose(userChoice, computerChoice) {
   )}(user) lose to ${convertLetter(
     computerChoice
   )}(computer). You lost .....!!`;
-}
+};
 
-function draw(userChoice, computerChoice) {
+const draw = (userChoice, computerChoice) => {
   result.innerHTML = `${convertLetter(
     userChoice
   )}(user) equals to ${convertLetter(
     computerChoice
   )}(computer). Match draw .....!!`;
-}
+};
 
-function main() {
+const main = () => {
   rock.addEventListener("click", () => {
     game("rock");
   });
@@ -86,6 +86,6 @@ function main() {
   scissors.addEventListener("click", () => {
     game("scissors");
   });
-}
+};
 
 main();
